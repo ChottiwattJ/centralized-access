@@ -2,7 +2,7 @@ const plugin = require('tailwindcss/plugin');
 const pluginTypography = require('@tailwindcss/typography');
 const { COLOR_THEMES, FONT_THEMES } = require('../themes');
 
-const THEME = process.env.BLOG_THEME || 'default';
+const THEME = process.env.BLOG_THEME || 'bejamas';
 const FONT_PRIMARY = process.env.BLOG_FONT_HEADINGS || 'sans-serif';
 const FONT_SECONDARY = process.env.BLOG_FONT_BODY || 'sans-serif';
 
@@ -36,8 +36,11 @@ module.exports = {
     extend: {
       backgroundImage: {
         'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+          'conic-gradient(from 250deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      /*backgroundImage: {
+        'custom-svg': "url('/key.svg')",
+      },*/
       colors: {
         primary: 'var(--color-primary)',
         'gradient-1': 'var(--color-gradient-1)',

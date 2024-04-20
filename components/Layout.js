@@ -38,7 +38,7 @@ export default function Layout({ children }) {
         document.documentElement.classList.remove('dark');
         localStorage.setItem('theme', 'light');
       }
-    };
+    }
   };
 
   useEffect(() => {
