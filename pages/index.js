@@ -18,33 +18,47 @@ export default function Index({ posts, globalData }) {
           {globalData.blogTitle}
         </h1>
         <ul className="w-full">
-          {posts.map((post) => (
-            <li
-              key={post.filePath}
-              className="md:first:rounded-t-lg md:last:rounded-b-lg backdrop-blur-lg bg-white dark:bg-black dark:bg-opacity-30 bg-opacity-10 hover:bg-opacity-20 dark:hover:bg-opacity-50 transition border border-gray-800 dark:border-white border-opacity-10 dark:border-opacity-10 border-b-0 last:border-b hover:border-b hovered-sibling:border-t-0"
-            >
-              <Link
-                as={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`}
-                href={`/posts/[slug]`}
-                className="py-6 lg:py-10 px-6 lg:px-16 block focus:outline-none focus:ring-4">
+  {posts.map((post) => {
+    const postSlug = post.filePath.replace(/\.mdx?$/, '');
 
-                {post.data.date && (
-                  <p className="uppercase mb-3 font-bold opacity-60">
-                    {post.data.date}
-                  </p>
-                )}
-                <h2 className="text-2xl md:text-3xl">{post.data.title}</h2>
-                {post.data.description && (
-                  <p className="mt-3 text-lg opacity-60">
-                    {post.data.description}
-                  </p>
-                )}
-                <ArrowIcon className="mt-4" />
+    return (
+      <li
+        key={post.filePath}
+        className="group relative md:first:rounded-t-lg md:last:rounded-b-lg bg-gradient-to-r from-purple-200 via-pink-200 to-blue-200 text-gray-700 my-4 rounded-lg shadow-lg transition duration-300 ease-in-out hover:shadow-md"
+      >
+        {/* Post content */}
+        <Link href={`/posts/${postSlug}`}>
+          <div className="p-6 rounded-lg transition duration-300 ease-in-out hover:bg-opacity-90 cursor-pointer">
+            <p className="uppercase mb-3 font-bold opacity-80">{post.data.date}</p>
+            <h2 className="text-2xl md:text-3xl font-semibold">{post.data.title}</h2>
+            <p className="mt-3 mb-10">{post.data.description}</p>
+          </div>
+        </Link>
 
-              </Link>
-            </li>
-          ))}
-        </ul>
+        {/* Buttons container */}
+        <div className="absolute bottom-6 right-6 flex items-center space-x-2">
+          {/* Documentation button */}
+          <Link href={`/posts/${postSlug}`}>
+            <div className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out cursor-pointer" style={{ opacity: '0.9' }}>
+              Documentation
+            </div>
+          </Link>
+
+          {/* 'Access App' button */}
+          <a
+            href={post.data.appLink || "#"} // Use appLink from post data or fallback to "#"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out cursor-pointer" style={{ opacity: '0.9', backdropFilter: 'blur(10px)' }}
+          >
+            Access App
+          </a>
+        </div>
+      </li>
+    );
+  })}
+</ul>
+
       </main>
       <Footer copyrightText={globalData.footerText} />
       <GradientBackground
