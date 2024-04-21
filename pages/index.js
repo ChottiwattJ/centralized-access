@@ -6,20 +6,26 @@ import Layout, { GradientBackground } from '../components/Layout';
 import ArrowIcon from '../components/ArrowIcon';
 import { getGlobalData } from '../utils/global-data';
 import SEO from '../components/SEO';
+import Head from 'next/head';
 
 export default function Index({ posts, globalData }) {
   return (
     <Layout>
+      <Head>
+      <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      </Head>
       <SEO title={"CenAccess | Dashboard"} description={globalData.blogTitle} />
       <Header name={"CenAccess | Centralized Access"} />
       <main className="w-full">
-        <h1 className="text-3xl lg:text-5xl text-center mb-12">
+        <h1 className="text-3sxl lg:text-5xl text-center mb-12">
           {globalData.blogTitle}
         </h1>
         <ul className="w-full">
           {posts.map((post) => {
             const postSlug = post.filePath.replace(/\.mdx?$/, '');
-
             return (
               <li
                 key={post.filePath}
