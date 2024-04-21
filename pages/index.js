@@ -11,7 +11,7 @@ export default function Index({ posts, globalData }) {
   return (
     <Layout>
       <SEO title={globalData.name} description={globalData.blogTitle} />
-      <Header name={globalData.name} />
+      <Header name={"CenAccess Dashboard"} />
       <main className="w-full">
         <h1 className="text-3xl lg:text-5xl text-center mb-12">
           {globalData.blogTitle}
@@ -29,7 +29,7 @@ export default function Index({ posts, globalData }) {
                   {/* Post content */}
                   <Link href={`/posts/${postSlug}`}>
                     <div>
-                      <p className="uppercase mb-3 font-bold opacity-80">{post.data.date}</p>
+                    <p className="uppercase mb-3 font-semibold opacity-90" style={{ color: '#34C759'}}>{post.data.date}</p>
                       <h2 className="text-2xl md:text-3xl font-semibold">{post.data.title}</h2>
                       <p className="mt-3 mb-3">{post.data.description}</p>
                     </div>
@@ -41,7 +41,7 @@ export default function Index({ posts, globalData }) {
                   {/* Documentation button */}
                   <Link href={`/posts/${postSlug}`}>
                     <div className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out cursor-pointer" style={{ opacity: '0.9' }}>
-                      Documentation
+                      How to use
                     </div>
                   </Link>
 
