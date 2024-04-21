@@ -10,7 +10,7 @@ import SEO from '../components/SEO';
 export default function Index({ posts, globalData }) {
   return (
     <Layout>
-      <SEO title={globalData.name} description={globalData.blogTitle} />
+      <SEO title={"CenAccess | Dashboard"} description={globalData.blogTitle} />
       <Header name={"CenAccess | Centralized Access"} />
       <main className="w-full">
         <h1 className="text-3xl lg:text-5xl text-center mb-12">
