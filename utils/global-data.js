@@ -7,7 +7,7 @@ export const getGlobalData = () => {
     : 'Application';
   const footerText = process.env.BLOG_FOOTER_TEXT
     ? decodeURI(process.env.BLOG_FOOTER_TEXT)
-    : 'Maintained by Chottiwatt Jittprasong';
+    : 'By Chottiwatt Jittprasong';
 
   return {
     name,
